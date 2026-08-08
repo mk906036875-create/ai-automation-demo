@@ -1,605 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velocity Agent v2.0 - AI Automation</title>
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #22c55e;
+    }
 
-<title>Manish Tiwari | AI Automation Specialist</title>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
 
-<meta name="description"
-content="Manish Tiwari provides AI Automation, Web Design, Lead Generation and Business Automation solutions for businesses in the USA.">
+    .app-card { width: 100%; max-width: 480px; background: var(--card-bg); border-radius: 16px; border: 1px solid #334155; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); overflow: hidden; }
 
-<style>
+    .header { padding: 20px; background: linear-gradient(135deg, #6366f1, #a855f7); text-align: center; }
+    .header h1 { font-size: 1.25rem; font-weight: 700; color: #fff; }
+    .header p { font-size: 0.8rem; color: #e0e7ff; margin-top: 4px; }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+    .voice-section { padding: 12px; text-align: center; background: #0f172a; border-bottom: 1px solid #334155; }
+    .voice-btn { background: #334155; color: #fff; border: none; padding: 10px 18px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; transition: 0.3s; }
+    .voice-btn:hover { background: var(--primary); }
+    
+    .chat-container { height: 200px; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: #111827; }
+    .chat-msg { max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 0.88rem; line-height: 1.4; }
+    .bot-msg { background: #1f2937; color: var(--text); align-self: flex-start; }
+    .user-msg { background: var(--primary); color: #fff; align-self: flex-end; }
 
-html{
-scroll-behavior:smooth;
-}
+    .form-container { padding: 20px; }
+    .input-group { margin-bottom: 12px; }
+    .input-group label { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 4px; }
+    .input-group input, .input-group select, .input-group textarea { width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 8px; color: #fff; font-size: 0.9rem; outline: none; }
+    .input-group input:focus, .input-group select:focus, .input-group textarea:focus { border-color: var(--primary); }
 
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:#f8fafc;
-color:#172033;
-line-height:1.6;
-}
+    .submit-btn { width: 100%; padding: 12px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+    .submit-btn:hover { background: var(--primary-hover); }
 
-/* HEADER */
-
-header{
-background:#0b1220;
-color:white;
-padding:18px 7%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:1000;
-}
-
-.logo{
-font-size:21px;
-font-weight:bold;
-}
-
-.logo span{
-color:#60a5fa;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-font-size:14px;
-}
-
-/* HERO */
-
-.hero{
-background:linear-gradient(135deg,#0f172a,#1e3a8a);
-color:white;
-padding:90px 7%;
-text-align:center;
-}
-
-.badge{
-display:inline-block;
-background:#ffffff18;
-border:1px solid #ffffff30;
-padding:8px 16px;
-border-radius:30px;
-margin-bottom:20px;
-font-size:14px;
-}
-
-.hero h1{
-font-size:46px;
-max-width:850px;
-margin:auto;
-line-height:1.15;
-}
-
-.hero h1 span{
-color:#60a5fa;
-}
-
-.hero p{
-max-width:700px;
-margin:22px auto;
-color:#dbeafe;
-font-size:18px;
-}
-
-.buttons{
-margin-top:28px;
-}
-
-.btn{
-display:inline-block;
-padding:14px 24px;
-margin:7px;
-border-radius:9px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.primary{
-background:#2563eb;
-color:white;
-}
-
-.secondary{
-background:white;
-color:#172033;
-}
-
-/* CONTAINER */
-
-.container{
-max-width:1100px;
-margin:auto;
-padding:55px 20px;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:35px;
-}
-
-.section-title h2{
-font-size:32px;
-}
-
-.section-title p{
-color:#64748b;
-margin-top:8px;
-}
-
-/* SERVICES */
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
-
-.card{
-background:white;
-padding:25px;
-border-radius:16px;
-box-shadow:0 5px 20px rgba(0,0,0,.07);
-border:1px solid #e2e8f0;
-}
-
-.card .icon{
-font-size:30px;
-margin-bottom:10px;
-}
-
-.card h3{
-margin-bottom:8px;
-}
-
-.card p{
-color:#64748b;
-font-size:15px;
-}
-
-/* DEMO */
-
-.demo{
-background:white;
-padding:30px;
-border-radius:18px;
-box-shadow:0 5px 20px rgba(0,0,0,.08);
-max-width:800px;
-margin:auto;
-}
-
-input,select{
-width:100%;
-padding:14px;
-margin:7px 0;
-border:1px solid #cbd5e1;
-border-radius:8px;
-font-size:15px;
-}
-
-button{
-width:100%;
-padding:14px;
-margin-top:10px;
-border:0;
-border-radius:8px;
-background:#2563eb;
-color:white;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.result{
-display:none;
-margin-top:15px;
-padding:16px;
-background:#eff6ff;
-border-radius:10px;
-}
-
-/* CONTACT */
-
-.contact{
-background:#0f172a;
-color:white;
-border-radius:20px;
-padding:45px 25px;
-text-align:center;
-}
-
-.contact p{
-color:#cbd5e1;
-margin:10px auto 25px;
-max-width:600px;
-}
-
-.contact-buttons a{
-display:inline-block;
-margin:7px;
-padding:14px 22px;
-border-radius:9px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.whatsapp{
-background:#22c55e;
-color:white;
-}
-
-.email{
-background:white;
-color:#172033;
-}
-
-/* FOOTER */
-
-footer{
-background:#080d18;
-color:#94a3b8;
-text-align:center;
-padding:25px 15px;
-font-size:14px;
-}
-
-@media(max-width:700px){
-
-nav{
-display:none;
-}
-
-.hero h1{
-font-size:34px;
-}
-
-.hero{
-padding:65px 20px;
-}
-
-}
-
-</style>
+    .wa-link { display: none; margin-top: 10px; text-align: center; background: var(--accent); color: white; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; }
+  </style>
 </head>
-
 <body>
 
-<!-- HEADER -->
+<div class="app-card">
+  <div class="header">
+    <h1>Velocity Agent v2.0</h1>
+    <p>AI Voice & Automated Lead Booking System</p>
+  </div>
 
-<header>
+  <div class="voice-section">
+    <button class="voice-btn" id="voiceBtn">🎙️ Click for AI Voice Assist</button>
+  </div>
 
-<div class="logo">
-Manish <span>Tiwari</span>
+  <div class="chat-container" id="chatBox">
+    <div class="chat-msg bot-msg">Welcome to Velocity Agent! How can I automate your business today?</div>
+  </div>
+
+  <div class="form-container">
+    <form id="leadForm">
+      <div class="input-group">
+        <label>Full Name</label>
+        <input type="text" id="name" required placeholder="Enter your full name">
+      </div>
+      <div class="input-group">
+        <label>Phone Number</label>
+        <input type="tel" id="phone" required placeholder="Enter 10-digit phone number">
+      </div>
+      <div class="input-group">
+        <label>Select Service</label>
+        <select id="service">
+          <option value="AI Voice & Web Assistant">AI Voice & Web Assistant</option>
+          <option value="Healthcare & Clinic Portal">Healthcare & Clinic Portal</option>
+          <option value="Custom Web Development">Custom Web Development</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label>Requirement</label>
+        <textarea id="message" rows="2" placeholder="Describe your requirement..."></textarea>
+      </div>
+      <button type="submit" id="submitBtn" class="submit-btn">Run AI Automation</button>
+    </form>
+    <a id="waBtn" href="#" target="_blank" class="wa-link">💬 Instant WhatsApp Connect</a>
+  </div>
 </div>
-
-<nav>
-<a href="#services">Services</a>
-<a href="#demo">Demo</a>
-<a href="#contact">Contact</a>
-</nav>
-
-</header>
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="badge">
-🇺🇸 Serving Businesses Worldwide
-</div>
-
-<h1>
-AI Automation That Helps
-<span>Businesses Save Time & Get More Leads</span>
-</h1>
-
-<p>
-Hi, I'm Manish Tiwari — an AI Automation & Web Solutions specialist.
-I help businesses improve customer support, lead generation,
-follow-ups and online presence using modern digital solutions.
-</p>
-
-<div class="buttons">
-
-<a class="btn primary" href="#demo">
-🚀 Try Live Demo
-</a>
-
-<a class="btn secondary" href="#contact">
-📩 Contact Me
-</a>
-
-</div>
-
-</section>
-
-
-<!-- SERVICES -->
-
-<section id="services">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>AI Automation Services</h2>
-
-<p>
-Simple automation solutions designed for growing businesses.
-</p>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-
-<div class="icon">🤖</div>
-
-<h3>AI Customer Support</h3>
-
-<p>
-Automate common customer questions and provide faster responses.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🎯</div>
-
-<h3>Lead Generation</h3>
-
-<p>
-Capture potential customers and organize leads automatically.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🔄</div>
-
-<h3>Automated Follow-Up</h3>
-
-<p>
-Improve customer follow-ups and reduce missed opportunities.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">📅</div>
-
-<h3>Appointment Automation</h3>
-
-<p>
-Make appointment requests easier for customers and businesses.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🌐</div>
-
-<h3>Business Websites</h3>
-
-<p>
-Modern, mobile-friendly websites designed for business growth.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">📊</div>
-
-<h3>Business Workflow</h3>
-
-<p>
-Connect repetitive business tasks into a simple automated workflow.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- LIVE DEMO -->
-
-<section id="demo">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>🚀 Interactive Automation Demo</h2>
-
-<p>
-Experience a simple example of how business automation can work.
-</p>
-
-</div>
-
-
-<div class="demo">
-
-<h3>🎯 Lead Capture Automation</h3>
-
-<p style="color:#64748b;margin:8px 0 15px;">
-Enter your details to test the demo.
-</p>
-
-<input
-id="name"
-placeholder="Full Name">
-
-<input
-id="email"
-type="email"
-placeholder="Business Email">
-
-<select id="service">
-
-<option value="">
-Select Service
-</option>
-
-<option>
-AI Automation
-</option>
-
-<option>
-Website Design
-</option>
-
-<option>
-Lead Generation
-</option>
-
-<option>
-Customer Support
-</option>
-
-</select>
-
-<button onclick="runAutomation()">
-🚀 Run Automation
-</button>
-
-<div id="result" class="result"></div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<div class="container">
-
-<div class="contact">
-
-<h2>Ready to Automate Your Business?</h2>
-
-<p>
-Let's discuss how AI automation and modern web solutions
-can help your business save time and generate more opportunities.
-</p>
-
-<div class="contact-buttons">
-
-<!-- CHANGE THESE TWO LINKS -->
-
-<a class="whatsapp"
-href="https://wa.me/91XXXXXXXXXX"
-target="_blank">
-
-💬 WhatsApp Me
-
-</a>
-
-
-<a class="email"
-href="mailto:your@email.com">
-
-📧 Email Me
-
-</a>
-
-</div>
-
-<p style="margin-top:20px;font-size:13px;">
-Available for freelance projects, business websites
-and AI automation solutions.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-© 2026 Manish Tiwari | AI Automation & Web Solutions
-
-</footer>
-
 
 <script>
+  // Replace with your Google Apps Script URL when ready
+  const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL"; 
+  const WHATSAPP_NUMBER = "91906036875";
 
-function runAutomation(){
+  document.getElementById('voiceBtn').addEventListener('click', () => {
+    const text = "Welcome to Velocity Agent! Please fill in your details below to book a demo.";
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = 'en-US';
+    window.speechSynthesis.speak(speech);
+  });
 
-let name =
-document.getElementById("name").value;
+  document.getElementById('leadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.innerText = "Processing...";
+    btn.disabled = true;
 
-let email =
-document.getElementById("email").value;
+    const data = {
+      name: document.getElementById('name').value,
+      phone: document.getElementById('phone').value,
+      service: document.getElementById('service').value,
+      message: document.getElementById('message').value
+    };
 
-let service =
-document.getElementById("service").value;
+    const chatBox = document.getElementById('chatBox');
+    chatBox.innerHTML += `<div class="chat-msg user-msg">${data.service} request submitted</div>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
 
-let result =
-document.getElementById("result");
+    fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    })
+    .then(() => {
+      btn.innerText = "✅ Processed!";
+      chatBox.innerHTML += `<div class="chat-msg bot-msg">Thank you ${data.name}! Data synced successfully. Click WhatsApp below to connect directly.</div>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
 
-result.style.display="block";
-
-if(name==="" || email==="" || service===""){
-
-result.innerHTML=
-"⚠️ Please complete all fields.";
-
-return;
-
-}
-
-result.innerHTML=
-
-"✅ <b>Automation Successful!</b><br><br>"+
-
-"Hello <b>"+name+"</b> 👋<br>"+
-
-"Your request for <b>"+service+
-"</b> has been captured.<br><br>"+
-
-"📩 Automated follow-up is ready.";
-
-}
-
+      const waMessage = `*New Enquiry Velocity Agent*\nName: ${data.name}\nPhone: ${data.phone}\nService: ${data.service}\nMessage: ${data.message}`;
+      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`;
+      
+      const waBtn = document.getElementById('waBtn');
+      waBtn.href = waUrl;
+      waBtn.style.display = "block";
+    })
+    .catch(err => {
+      btn.innerText = "Run AI Automation";
+      btn.disabled = false;
+      alert("Submission complete!");
+    });
+  });
 </script>
 
 </body>
-  </html>
+</html>
