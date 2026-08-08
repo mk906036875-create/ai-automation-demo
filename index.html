@@ -3,146 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Velocity Agent v2.0 - AI Automation</title>
+  <title>AI Lead Capture & Appointment Agent</title>
   <style>
     :root {
-      --primary: #6366f1;
-      --primary-hover: #4f46e5;
-      --bg: #0f172a;
-      --card-bg: #1e293b;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --accent: #22c55e;
+      --primary: #007bff;
+      --secondary: #28a745;
+      --bg: #f4f7f6;
+      --card-bg: #ffffff;
+      --text: #333333;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
 
-    .app-card { width: 100%; max-width: 480px; background: var(--card-bg); border-radius: 16px; border: 1px solid #334155; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); overflow: hidden; }
-
-    .header { padding: 20px; background: linear-gradient(135deg, #6366f1, #a855f7); text-align: center; }
-    .header h1 { font-size: 1.25rem; font-weight: 700; color: #fff; }
-    .header p { font-size: 0.8rem; color: #e0e7ff; margin-top: 4px; }
-
-    .voice-section { padding: 12px; text-align: center; background: #0f172a; border-bottom: 1px solid #334155; }
-    .voice-btn { background: #334155; color: #fff; border: none; padding: 10px 18px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; transition: 0.3s; }
-    .voice-btn:hover { background: var(--primary); }
+    .container { width: 100%; max-width: 480px; background: var(--card-bg); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); overflow: hidden; display: flex; flex-direction: column; }
     
-    .chat-container { height: 200px; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: #111827; }
-    .chat-msg { max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 0.88rem; line-height: 1.4; }
-    .bot-msg { background: #1f2937; color: var(--text); align-self: flex-start; }
-    .user-msg { background: var(--primary); color: #fff; align-self: flex-end; }
+    .header { background: var(--primary); color: white; padding: 20px; text-align: center; }
+    .header h2 { font-size: 1.4rem; margin-bottom: 5px; }
+    .header p { font-size: 0.85rem; opacity: 0.9; }
 
-    .form-container { padding: 20px; }
-    .input-group { margin-bottom: 12px; }
-    .input-group label { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 4px; }
-    .input-group input, .input-group select, .input-group textarea { width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 8px; color: #fff; font-size: 0.9rem; outline: none; }
-    .input-group input:focus, .input-group select:focus, .input-group textarea:focus { border-color: var(--primary); }
-
-    .submit-btn { width: 100%; padding: 12px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s; }
-    .submit-btn:hover { background: var(--primary-hover); }
-
-    .wa-link { display: none; margin-top: 10px; text-align: center; background: var(--accent); color: white; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; }
-  </style>
-</head>
-<body>
-
-<div class="app-card">
-  <div class="header">
-    <h1>Velocity Agent v2.0</h1>
-    <p>AI Voice & Automated Lead Booking System</p>
-  </div>
-
-  <div class="voice-section">
-    <button class="voice-btn" id="voiceBtn">🎙️ Click for AI Voice Assist</button>
-  </div>
-
-  <div class="chat-container" id="chatBox">
-    <div class="chat-msg bot-msg">Welcome to Velocity Agent! How can I automate your business today?</div>
-  </div>
-
-  <div class="form-container">
-    <form id="leadForm">
-      <div class="input-group">
-        <label>Full Name</label>
-        <input type="text" id="name" required placeholder="Enter your full name">
-      </div>
-      <div class="input-group">
-        <label>Phone Number</label>
-        <input type="tel" id="phone" required placeholder="Enter 10-digit phone number">
-      </div>
-      <div class="input-group">
-        <label>Select Service</label>
-        <select id="service">
-          <option value="AI Voice & Web Assistant">AI Voice & Web Assistant</option>
-          <option value="Healthcare & Clinic Portal">Healthcare & Clinic Portal</option>
-          <option value="Custom Web Development">Custom Web Development</option>
-        </select>
-      </div>
-      <div class="input-group">
-        <label>Requirement</label>
-        <textarea id="message" rows="2" placeholder="Describe your requirement..."></textarea>
-      </div>
-      <button type="submit" id="submitBtn" class="submit-btn">Run AI Automation</button>
-    </form>
-    <a id="waBtn" href="#" target="_blank" class="wa-link">💬 Instant WhatsApp Connect</a>
-  </div>
-</div>
-
-<script>
-  // Replace with your Google Apps Script URL when ready
-  const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL"; 
-  const WHATSAPP_NUMBER = "91906036875";
-
-  document.getElementById('voiceBtn').addEventListener('click', () => {
-    const text = "Welcome to Velocity Agent! Please fill in your details below to book a demo.";
-    const speech = new SpeechSynthesisUtterance(text);
-    speech.lang = 'en-US';
-    window.speechSynthesis.speak(speech);
-  });
-
-  document.getElementById('leadForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = document.getElementById('submitBtn');
-    btn.innerText = "Processing...";
-    btn.disabled = true;
-
-    const data = {
-      name: document.getElementById('name').value,
-      phone: document.getElementById('phone').value,
-      service: document.getElementById('service').value,
-      message: document.getElementById('message').value
-    };
-
-    const chatBox = document.getElementById('chatBox');
-    chatBox.innerHTML += `<div class="chat-msg user-msg">${data.service} request submitted</div>`;
-    chatBox.scrollTop = chatBox.scrollHeight;
-
-    fetch(GOOGLE_SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    })
-    .then(() => {
-      btn.innerText = "✅ Processed!";
-      chatBox.innerHTML += `<div class="chat-msg bot-msg">Thank you ${data.name}! Data synced successfully. Click WhatsApp below to connect directly.</div>`;
-      chatBox.scrollTop = chatBox.scrollHeight;
-
-      const waMessage = `*New Enquiry Velocity Agent*\nName: ${data.name}\nPhone: ${data.phone}\nService: ${data.service}\nMessage: ${data.message}`;
-      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`;
-      
-      const waBtn = document.getElementById('waBtn');
-      waBtn.href = waUrl;
-      waBtn.style.display = "block";
-    })
-    .catch(err => {
-      btn.innerText = "Run AI Automation";
-      btn.disabled = false;
-      alert("Submission complete!");
-    });
-  });
-</script>
-
-</body>
-</html>
+    .chat-box { padding: 20px; height: 220px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #fafafa; border-bottom: 1px solid #eee; }
+    .message { max-width: 80%; padding:
