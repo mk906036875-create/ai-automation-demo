@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 <title>Manish Tiwari | AI Automation Specialist</title>
 
 <meta name="description"
-content="Manish Tiwari provides AI Automation, Web Design, Lead Generation and Business Automation solutions for businesses in the USA.">
+content="Manish Tiwari provides AI Automation, Lead Generation, Business Automation and Web Solutions for businesses worldwide.">
 
 <style>
 
@@ -27,8 +27,6 @@ background:#f8fafc;
 color:#172033;
 line-height:1.6;
 }
-
-/* HEADER */
 
 header{
 background:#0b1220;
@@ -57,8 +55,6 @@ text-decoration:none;
 margin-left:20px;
 font-size:14px;
 }
-
-/* HERO */
 
 .hero{
 background:linear-gradient(135deg,#0f172a,#1e3a8a);
@@ -118,8 +114,6 @@ background:white;
 color:#172033;
 }
 
-/* CONTAINER */
-
 .container{
 max-width:1100px;
 margin:auto;
@@ -139,8 +133,6 @@ font-size:32px;
 color:#64748b;
 margin-top:8px;
 }
-
-/* SERVICES */
 
 .cards{
 display:grid;
@@ -170,24 +162,27 @@ color:#64748b;
 font-size:15px;
 }
 
-/* DEMO */
-
 .demo{
 background:white;
 padding:30px;
 border-radius:18px;
 box-shadow:0 5px 20px rgba(0,0,0,.08);
-max-width:800px;
+max-width:850px;
 margin:auto;
 }
 
-input,select{
+input,select,textarea{
 width:100%;
 padding:14px;
 margin:7px 0;
 border:1px solid #cbd5e1;
 border-radius:8px;
 font-size:15px;
+}
+
+textarea{
+min-height:100px;
+resize:vertical;
 }
 
 button{
@@ -203,15 +198,91 @@ font-weight:bold;
 cursor:pointer;
 }
 
+button:hover{
+background:#1d4ed8;
+}
+
 .result{
 display:none;
 margin-top:15px;
 padding:16px;
 background:#eff6ff;
 border-radius:10px;
+border:1px solid #bfdbfe;
 }
 
-/* CONTACT */
+.dashboard{
+display:none;
+margin-top:25px;
+}
+
+.dashboard h3{
+margin-bottom:15px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:12px;
+margin-bottom:20px;
+}
+
+.stat{
+background:#f8fafc;
+border:1px solid #e2e8f0;
+border-radius:12px;
+padding:18px;
+text-align:center;
+}
+
+.stat strong{
+display:block;
+font-size:25px;
+color:#2563eb;
+}
+
+.lead-box{
+background:#f8fafc;
+border:1px solid #e2e8f0;
+border-radius:12px;
+padding:18px;
+margin-top:10px;
+}
+
+.status{
+display:inline-block;
+padding:5px 10px;
+border-radius:20px;
+background:#dcfce7;
+color:#166534;
+font-size:13px;
+font-weight:bold;
+margin-top:8px;
+}
+
+.workflow{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:10px;
+margin-top:20px;
+}
+
+.workflow div{
+background:#eff6ff;
+border:1px solid #bfdbfe;
+padding:15px;
+border-radius:10px;
+text-align:center;
+font-weight:bold;
+}
+
+.appointment{
+margin-top:25px;
+padding:20px;
+background:#f8fafc;
+border-radius:12px;
+border:1px solid #e2e8f0;
+}
 
 .contact{
 background:#0f172a;
@@ -246,8 +317,6 @@ background:white;
 color:#172033;
 }
 
-/* FOOTER */
-
 footer{
 background:#080d18;
 color:#94a3b8;
@@ -277,8 +346,6 @@ padding:65px 20px;
 
 <body>
 
-<!-- HEADER -->
-
 <header>
 
 <div class="logo">
@@ -288,18 +355,17 @@ Manish <span>Tiwari</span>
 <nav>
 <a href="#services">Services</a>
 <a href="#demo">Demo</a>
+<a href="#dashboard">Dashboard</a>
 <a href="#contact">Contact</a>
 </nav>
 
 </header>
 
 
-<!-- HERO -->
-
 <section class="hero">
 
 <div class="badge">
-🇺🇸 Serving Businesses Worldwide
+🇺🇸 Built for Businesses Worldwide
 </div>
 
 <h1>
@@ -308,9 +374,8 @@ AI Automation That Helps
 </h1>
 
 <p>
-Hi, I'm Manish Tiwari — an AI Automation & Web Solutions specialist.
 I help businesses improve customer support, lead generation,
-follow-ups and online presence using modern digital solutions.
+follow-ups and appointment workflows using practical AI automation.
 </p>
 
 <div class="buttons">
@@ -327,8 +392,6 @@ follow-ups and online presence using modern digital solutions.
 
 </section>
 
-
-<!-- SERVICES -->
 
 <section id="services">
 
@@ -347,80 +410,51 @@ Simple automation solutions designed for growing businesses.
 <div class="cards">
 
 <div class="card">
-
 <div class="icon">🤖</div>
-
 <h3>AI Customer Support</h3>
-
 <p>
 Automate common customer questions and provide faster responses.
 </p>
-
 </div>
 
-
 <div class="card">
-
 <div class="icon">🎯</div>
-
 <h3>Lead Generation</h3>
-
 <p>
-Capture potential customers and organize leads automatically.
+Capture potential customers and organize leads efficiently.
 </p>
-
 </div>
 
-
 <div class="card">
-
 <div class="icon">🔄</div>
-
 <h3>Automated Follow-Up</h3>
-
 <p>
-Improve customer follow-ups and reduce missed opportunities.
+Reduce missed opportunities with structured follow-up workflows.
 </p>
-
 </div>
 
-
 <div class="card">
-
 <div class="icon">📅</div>
-
 <h3>Appointment Automation</h3>
-
 <p>
 Make appointment requests easier for customers and businesses.
 </p>
-
 </div>
 
-
 <div class="card">
-
 <div class="icon">🌐</div>
-
 <h3>Business Websites</h3>
-
 <p>
 Modern, mobile-friendly websites designed for business growth.
 </p>
-
 </div>
 
-
 <div class="card">
-
 <div class="icon">📊</div>
-
 <h3>Business Workflow</h3>
-
 <p>
-Connect repetitive business tasks into a simple automated workflow.
+Connect repetitive business tasks into simple workflows.
 </p>
-
 </div>
 
 </div>
@@ -430,29 +464,26 @@ Connect repetitive business tasks into a simple automated workflow.
 </section>
 
 
-<!-- LIVE DEMO -->
-
 <section id="demo">
 
 <div class="container">
 
 <div class="section-title">
 
-<h2>🚀 Interactive Automation Demo</h2>
+<h2>🚀 Interactive AI Automation Demo</h2>
 
 <p>
-Experience a simple example of how business automation can work.
+Test how a simple lead capture and follow-up workflow can work.
 </p>
 
 </div>
-
 
 <div class="demo">
 
 <h3>🎯 Lead Capture Automation</h3>
 
 <p style="color:#64748b;margin:8px 0 15px;">
-Enter your details to test the demo.
+Enter your details to test the workflow.
 </p>
 
 <input
@@ -464,35 +495,125 @@ id="email"
 type="email"
 placeholder="Business Email">
 
+<input
+id="phone"
+placeholder="Phone Number">
+
+<input
+id="business"
+placeholder="Business Name">
+
 <select id="service">
 
 <option value="">
 Select Service
 </option>
 
-<option>
-AI Automation
-</option>
-
-<option>
-Website Design
-</option>
-
-<option>
-Lead Generation
-</option>
-
-<option>
-Customer Support
-</option>
+<option>AI Automation</option>
+<option>Website Design</option>
+<option>Lead Generation</option>
+<option>Customer Support</option>
+<option>Appointment Automation</option>
 
 </select>
 
+<textarea
+id="message"
+placeholder="What would you like to automate?">
+</textarea>
+
 <button onclick="runAutomation()">
-🚀 Run Automation
+🚀 Capture Lead & Run Automation
 </button>
 
 <div id="result" class="result"></div>
+
+
+<div id="dashboard" class="dashboard">
+
+<h3>📊 Lead Automation Dashboard</h3>
+
+<div class="stats">
+
+<div class="stat">
+<strong id="leadCount">1</strong>
+Total Leads
+</div>
+
+<div class="stat">
+<strong>1</strong>
+New Leads
+</div>
+
+<div class="stat">
+<strong>1</strong>
+Follow-Up
+</div>
+
+<div class="stat">
+<strong>0</strong>
+Converted
+</div>
+
+</div>
+
+<div class="lead-box">
+
+<strong>👤 Lead Details</strong>
+
+<p id="leadDetails"></p>
+
+<span class="status">
+● Follow-Up Ready
+</span>
+
+</div>
+
+
+<div class="workflow">
+
+<div>🎯 Lead Captured</div>
+
+<div>🤖 Auto Response</div>
+
+<div>🔄 Follow-Up</div>
+
+<div>📅 Appointment</div>
+
+</div>
+
+
+<div class="appointment">
+
+<h3>📅 Appointment Automation</h3>
+
+<p style="color:#64748b;">
+The next step in this demo is to schedule or request an appointment.
+</p>
+
+<select id="appointmentTime">
+
+<option>Select Preferred Time</option>
+
+<option>Morning</option>
+
+<option>Afternoon</option>
+
+<option>Evening</option>
+
+</select>
+
+<button onclick="bookAppointment()">
+📅 Request Appointment
+</button>
+
+<div id="appointmentResult"
+class="result">
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -500,8 +621,6 @@ Customer Support
 
 </section>
 
-
-<!-- CONTACT -->
 
 <section id="contact">
 
@@ -518,19 +637,16 @@ can help your business save time and generate more opportunities.
 
 <div class="contact-buttons">
 
-<!-- CHANGE THESE TWO LINKS -->
-
 <a class="whatsapp"
-href="https://wa.me/91XXXXXXXXXX"
+href="https://wa.me/919919900020"
 target="_blank">
 
 💬 WhatsApp Me
 
 </a>
 
-
 <a class="email"
-href="mailto:your@email.com">
+href="mailto:mk906036875@gmail.com">
 
 📧 Email Me
 
@@ -550,8 +666,6 @@ and AI automation solutions.
 </section>
 
 
-<!-- FOOTER -->
-
 <footer>
 
 © 2026 Manish Tiwari | AI Automation & Web Solutions
@@ -564,27 +678,49 @@ and AI automation solutions.
 function runAutomation(){
 
 let name =
-document.getElementById("name").value;
+document.getElementById("name").value.trim();
 
 let email =
-document.getElementById("email").value;
+document.getElementById("email").value.trim();
+
+let phone =
+document.getElementById("phone").value.trim();
+
+let business =
+document.getElementById("business").value.trim();
 
 let service =
 document.getElementById("service").value;
 
+let message =
+document.getElementById("message").value.trim();
+
 let result =
 document.getElementById("result");
 
+let dashboard =
+document.getElementById("dashboard");
+
+if(
+name==="" ||
+email==="" ||
+phone==="" ||
+business==="" ||
+service===""
+){
+
 result.style.display="block";
 
-if(name==="" || email==="" || service===""){
-
 result.innerHTML=
-"⚠️ Please complete all fields.";
+"⚠️ <b>Please complete all required fields.</b>";
+
+dashboard.style.display="none";
 
 return;
 
 }
+
+result.style.display="block";
 
 result.innerHTML=
 
@@ -593,13 +729,60 @@ result.innerHTML=
 "Hello <b>"+name+"</b> 👋<br>"+
 
 "Your request for <b>"+service+
-"</b> has been captured.<br><br>"+
+"</b> has been captured successfully.<br><br>"+
 
-"📩 Automated follow-up is ready.";
+"🤖 AI response prepared<br>"+
+"🔄 Follow-up workflow activated<br>"+
+"📊 Lead added to dashboard";
+
+dashboard.style.display="block";
+
+document.getElementById("leadDetails").innerHTML=
+
+"<b>Name:</b> "+name+"<br>"+
+"<b>Email:</b> "+email+"<br>"+
+"<b>Phone:</b> "+phone+"<br>"+
+"<b>Business:</b> "+business+"<br>"+
+"<b>Service:</b> "+service+"<br>"+
+"<b>Requirement:</b> "+
+(message || "Not provided");
+
+dashboard.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}
+
+
+function bookAppointment(){
+
+let time =
+document.getElementById("appointmentTime").value;
+
+let box =
+document.getElementById("appointmentResult");
+
+box.style.display="block";
+
+if(time==="Select Preferred Time"){
+
+box.innerHTML=
+"⚠️ Please select a preferred time.";
+
+return;
+
+}
+
+box.innerHTML=
+
+"✅ <b>Appointment Request Created!</b><br><br>"+
+"Preferred time: <b>"+time+"</b><br><br>"+
+"📩 In a real business system, the request can be connected to email, CRM, calendar or WhatsApp automation.";
 
 }
 
 </script>
 
 </body>
-  </html>
+</html>
