@@ -10,7 +10,7 @@ AI Automation solutions for businesses.
 - Social Media Automation
 - AI Content Automation
 
-## Demo
+## Demo https://mk906036875-create.github.io/ai-automation-demo/
 AI automation demo project for client presentation.
 
 ## Contact
